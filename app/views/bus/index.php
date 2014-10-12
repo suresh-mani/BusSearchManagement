@@ -34,7 +34,7 @@
                 <p>Example of Keyword to Search "MG Road", "Shankarmatta", "Town Hall", "HAL"</p>
             </form>
 
-            <p>
+            <p ng-show="busDetails">
                 <b>"<i>{{ keyword }}</i>" Search results are:</b>
             </p>
             <div class="bms-border-bottom" ng-repeat="busDetail in busDetails">
