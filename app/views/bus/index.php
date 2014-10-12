@@ -35,6 +35,7 @@
             </form>
 
             <div class="bms-border-bottom" ng-repeat="busDetail in busDetails">
+                <p><b>"<i>{{ keyword }}</i>" Search results are:</b></p>
                 <div>
                     <span class="bms-padding-right20 bms-padding-bottom10">
                         <img src="/images/bus.png">

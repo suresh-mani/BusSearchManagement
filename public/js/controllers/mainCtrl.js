@@ -1,6 +1,7 @@
 angular.module('mainCtrl', [])
     .controller('mainController', function($scope, $http, Bus) {
         $scope.searchInput = {};
+        $scope.keyword = {};
 
         /*
          * Function handle to search buses near an area
@@ -8,6 +9,7 @@ angular.module('mainCtrl', [])
         $scope.searchBusRoute = function() { 
             Bus.searchResult($scope.searchInput.q).success(function(getData) {
                 $scope.busDetails = getData;
+                $scope.keyword = $scope.searchInput.q;
             }).error(function(data) {
                 console.log(data);
             });
