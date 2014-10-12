@@ -28,12 +28,13 @@
 
             <form ng-submit="searchBusRoute()">
                 <div class="form-group">
-                    <input type="text" class="bms-width350 form-control input-sm" required name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
+                    <input type="text" ng-keypress="isEmpy(searchInput.q)" class="bms-width350 form-control input-sm" required name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
                     <button title="Search" type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
+                <p>Example of Keyword to Search "MG Road", "Shankarmatta", "Town Hall", "HAL"</p>
             </form>
 
-            <div class="bms-border-bottom" ng-hide="loading" ng-repeat="busDetail in busDetails">
+            <div class="bms-border-bottom" ng-repeat="busDetail in busDetails">
                 <div>
                     <span class="bms-padding-right20 bms-padding-bottom10">
                         <img src="/images/bus.png">
@@ -44,46 +45,45 @@
                     </span>
                 </div>
                 <div class="bms-padding-right20 bms-padding-bottom10">
-                    <span ng-click="searchBusStop(busDetail.bus_id)" class="bms-bus_stop" title="Click Here">
+                    <span ng-click="searchBusStop(busDetail.bus_id, busDetail.route_number)" class="bms-bus_stop" title="Click Here">
                         <img src="/images/stop.png">
                         Bus Stops
                     </span>
                 </div>
             </div>
+            <span class="error" ng-show="busDetails.length == 0">Search result not found</span>
         </div>
         
-        <div id="light" ng-hide="loading">
+        <div id="light">
             <table id="routes" cellspacing="0" cellpadding="0" width="100%">
                 <tbody>
                     <tr>
                     <td id="routes-result-header">
                         <span class="trip-route-label">
                             <img src="/images/bus.png" alt="" align="absmiddle">
-                        </span>Route No. 335M
+                        </span>Route No. {{ routeNumber }}
                     </td>
-                    </tr>
-                    <tr class="odd">
-                        <td colspan="2">
-                            <table cellpadding="0" cellspacing="0" width="100%">
-                                <tr ng-repeat="stopDetail in stopDetails">
-                                    <td width="21%">
-                                        <ul class="liststops">
-                                            <li>
-                                                <span id='busstop_name'>
-                                                    {{ stopDetail.address }}
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
                     </tr>
                 </tbody>
             </table>
+            
+            <ul class="liststops">
+                <li ng-repeat="stopDetail in stopDetails">
+                    <p id='busstop_name'>
+                        {{ stopDetail.address }}
+                    </p>
+                    <p>
+                       <B>Arrival Time : </B>{{ stopDetail.arrival_time }} 
+                    </p>
+                </li>
+                <li>
+                    <span class="error" ng-show="stopDetails.length == 0">
+                        Search result not found
+                    </span>
+                </li>
+            </ul>
         </div>
         <div id="fade" onClick="lightbox_close();"></div>
-        
     </body>
 </html>
 

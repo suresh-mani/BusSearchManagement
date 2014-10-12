@@ -30,8 +30,22 @@ class Stop extends Eloquent {
      */
     public $timestamps = false;
     
+    /**
+     * Function to get bus stop by bus id
+     * 
+     * @param int $busId
+     * 
+     * @return object 
+     */
     public static function findBusStopByBusId($busId)
     {
-       return Stop::where('bus_id', '=', $busId)->get();
+        $object = DB::table('stops')
+            ->join('timetable', 'stops.stop_id', '=', 'timetable.stop_id')
+            ->where('stops.bus_id', '=', $busId)
+            ->select('stops.address', 'timetable.arrival_time')
+            ->orderBy('timetable.arrival_time', 'desc')
+            ->get();
+        
+        return $object;
     }
 }

@@ -39,6 +39,8 @@ class BusRoute extends Eloquent {
      */
     public static function filterBusRoute($keyword)
     {
-        return BusRoute::where('location', 'LIKE', $keyword.'%')->get();
+        return BusRoute::where('location', 'LIKE', $keyword.'%')
+                ->select('bus_id', 'route_number', 'location')
+                ->get();
     }
 }

@@ -53,7 +53,7 @@ class BusController extends BaseController
         
         return Response::json($busRouteObj);
     }
-    
+       
     /**
      * Function to get bus stop by bus id
      *
