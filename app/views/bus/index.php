@@ -31,7 +31,7 @@
                     <input type="text" ng-keypress="isEmpy(searchInput.q)" class="bms-width350 form-control input-sm" required name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
                     <button title="Search" type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
-                <p>Example of Keyword to Search "MG Road", "Shankarmatta", "Town Hall", "HAL"</p>
+                <p>Example of Keywords to Search "MG Road", "Shankarmatta", "Town Hall", "HAL"</p>
             </form>
 
             <p ng-show="busDetails">
