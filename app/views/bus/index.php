@@ -28,7 +28,7 @@
 
             <form ng-submit="searchBusRoute()">
                 <div class="form-group">
-                    <input type="text" class="bms-width350 form-control input-sm" name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
+                    <input type="text" class="bms-width350 form-control input-sm" required name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
                     <button title="Search" type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </form>
