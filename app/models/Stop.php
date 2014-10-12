@@ -43,7 +43,7 @@ class Stop extends Eloquent {
             ->join('timetable', 'stops.stop_id', '=', 'timetable.stop_id')
             ->where('stops.bus_id', '=', $busId)
             ->select('stops.address', 'timetable.arrival_time')
-            ->orderBy('timetable.arrival_time', 'desc')
+            ->orderBy('timetable.arrival_time', 'ASC')
             ->get();
         
         return $object;
