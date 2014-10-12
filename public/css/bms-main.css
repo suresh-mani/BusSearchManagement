@@ -1,0 +1,157 @@
+.bms-width350{width:350px}
+.btn-lg, .btn-group-lg > .btn {line-height:0.6 !important;}
+.form-group button {margin-top: -50px; margin-left: 370px;}
+.bms-padding-right20{padding-right: 20px;}
+.bms-padding-bottom10{padding-bottom: 10px;}
+.bms-border-bottom{border-bottom:1px solid;}
+.err{
+    border: 1px solid;  margin: 10px 0px;
+    padding:10px;  color: #D8000C;
+    background-color: #FFBABA;   list-style: none;
+}
+
+.js body ,html body{
+background:#fff;
+font-size:12px;
+font-family: arial,verdana,sans-serif;
+}
+*
+ul li{
+list-style-type:none !important;
+list-style-image:none!important;
+}
+div
+{
+margin:0px; 
+padding:0px;
+}
+table#routes
+{
+color: #000;
+}
+table#routes td#routes-result-header
+{
+background: repeat-x #789 !important;
+min-height:31px;
+color: #FFFFFF;
+font-size: 16px;
+padding: 6px 7px;
+text-align: left;
+}
+table#routes td#routes-result-header img
+{
+margin:0px 10px;
+border:0px;
+}
+table#routes tr.odd td
+{
+padding: 8px;           
+background:#fbfbfb !important;
+border-bottom:2px solid #525151;
+color:#000;
+}
+table#routes tr td table {
+       border-bottom:none!important;
+}
+.relatedroutes
+{
+width:450px;
+overflow:hidden;
+}
+.relatedroutes li
+{
+float:left;
+margin-right:45px;
+list-style:disc !important;
+}
+.relatedroutes li a
+{
+font-size:12px!important;
+color:#000;
+}
+.routestime
+{
+width:400px;
+overflow:hidden;
+border:1px solid #d2e7f3;
+background:#eff6f9;
+
+}
+.routestime li
+{
+float:left;
+margin-right:45px;
+list-style:disc !important;
+margin-bottom:5px;
+margin-top:5px;
+}
+.routestime li a
+{
+font-size:12px!important;
+color:#000;
+}
+
+.liststops
+{
+overflow:hidden;
+padding-left:0px;
+}
+.liststops li
+{
+margin-bottom:8px;
+color:#434343;
+font-size:12px;
+}
+.liststops li img{
+margin-right:14px;
+}
+
+.liststops li a
+{
+color:#000;
+}
+.tabrel tr td a
+{
+font-size:12px!important;
+text-decoration:none;
+color:#000;
+}
+.tabrel tr td a:hover
+{
+font-size:12px!important;
+text-decoration:underline;
+}
+table#routes tr td table {
+       border-bottom:none!important;
+}
+table#routes tr td table tr td{
+       border-bottom:none!important;
+}
+table#routes tr td table tr td.rightborder{
+       border-right:1px solid #dddddd!important;
+}
+table#routes tr td table tr td.bottomborder{
+       border-bottom:1px solid #dddddd!important;
+}
+table#routes tr td table tr td p {
+   color: #000;
+   font-size: 12px;
+       padding:0px;
+       margin:0px;
+}
+table#routes tr td table tr td p a{
+   color: #000;
+   font-size: 12px;
+       text-decoration:underline;
+       margin-right:20px;
+}
+table#routes tr td table tr td p a img{
+       text-decoration:none!important;
+       border:0px;
+       margin-right:7px;
+}
+.bms-bus_stop{
+    color: #428bca;
+    cursor: pointer;
+    font-weight: bold;
+}
