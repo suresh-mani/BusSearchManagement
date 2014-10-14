@@ -55,7 +55,7 @@ return array(
             'host'      => 'localhost',
             'database'  => 'bus-search-management-system',
             'username'  => 'root',
-            'password'  => 'root',
+            'password'  => 'bus098$',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
