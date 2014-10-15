@@ -14,18 +14,44 @@
  * @link       
  */
 class StopModelTest extends TestCase {
+    
     /**
-     * Verfiy Bus stops arrival time functionality
+     * Sample Bus Stop Data
+     */
+    public function testBusStopProvider()
+    {
+        $sampleData
+            = array("address" => "Newton City","arrival_time" => "10:30:00");
+        
+        $this->assertNotEmpty($sampleData);
+        
+        return $sampleData;
+    }
+    
+    /**
+     * Verfiy Bus stops Functionality
+     * 
+     * @depends testBusStopProvider
      * 
      * @return void
      */
-    public function testFindBusStopByBusId()
+    public function testFindBusStopByBusId($sampleData)
     {
-        $stopObj = BusRoute::findBusStopByBusId("1");
+        $busId = 1;
         
-        // If bus stop object empty
-        $this->assertFalse($stopObj);
-  
-        $this->assertTrue($stopObj);
+        $this->assertNotEmpty($busId);
+               
+        $this->assertNotNull($busId);
+        
+        $this->assertContainsOnly('int', array($busId));
+        
+        $getBusStopData
+            = Stop::findBusStopByBusId($busId);
+        
+        $this->assertNotEmpty($getBusStopData);
+        
+        $busStopData = $getBusStopData->items['0']['attributes'];
+        
+        $this->assertEquals($sampleData, $busStopData);
     }
 }

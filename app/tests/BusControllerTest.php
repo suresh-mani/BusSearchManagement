@@ -22,11 +22,20 @@ class BusControllerTest extends TestCase {
      * @return void
      */
     public function testSearchResult() {
-        $this->client->request('GET', 'api/search/HAL');
         
-        $this->assertTrue($this->client->getResponse()->isOk()); 
-
-        $this->assertResponseOk();
+        $location = "HAL";
+                
+        $this->assertNotEmpty($location);
+        
+        $this->assertNotNull($location);
+        
+        $this->assertContainsOnly('string', array($location));
+        
+        $this->client->request('GET', 'api/search/'.$location);
+        
+        $this->assertEquals(200, $this->client->getResponse()->isOk());
+        
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
     
     /**
@@ -35,10 +44,19 @@ class BusControllerTest extends TestCase {
      * @return void
      */
     public function testGetBusStop() {
-        $this->client->request('GET', 'api/getStop/4');
+        
+        $busId = 2;
+        
+        $this->assertNotEmpty($busId);
+        
+        $this->assertNotNull($busId);
+        
+        $this->assertContainsOnly('int', array($busId));
+        
+        $this->client->request('GET', 'api/getStop/'.$busId);
+        
+        $this->assertEquals(200, $this->client->getResponse()->isOk());
 
         $this->assertTrue($this->client->getResponse()->isOk()); 
-        
-        $this->assertResponseOk();
     }
 }

@@ -14,18 +14,47 @@
  * @link       
  */
 class BusRouteModelTest extends TestCase {
+    
+    /**
+     * Sample Bus Route Data
+     */
+    public function testbusRouteprovider()
+    {
+        $sampleBusData
+            = array("bus_id" => 4,"route_number" => "V-333Z", "location" => "HAL");
+        
+        $this->assertNotEmpty($sampleBusData);
+        
+        return $sampleBusData;
+    }
+    
     /**
      * Verfiy filter bus route functionality
      * 
+     * @depends testbusRouteprovider
+     * 
      * @return void
      */
-    public function testFilterBusRoute()
+    public function testFilterBusRoute(array $sampleBusData)
     {
-        $busObj = BusRoute::filterBusRoute("HAL");
+        /**
+         * Search Bus Route
+         */
+        $location = "HAL";
         
-        // If bus object empty
-        $this->assertFalse($busObj);
-  
-        $this->assertTrue($busObj);
+        $this->assertNotEmpty($location);
+        
+        $this->assertNotNull($location);
+        
+        $this->assertContainsOnly('string', array($location));
+        
+        $getBusRoute
+            = BusRoute::filterBusRoute($location);
+        
+        $this->assertNotEmpty($getBusRoute);
+        
+        $busData = $getBusRoute['0']['attributes'];
+                
+        $this->assertEquals($sampleBusData, $busData);
     }
 }
