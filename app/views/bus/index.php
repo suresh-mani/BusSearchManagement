@@ -28,7 +28,7 @@
 
             <form ng-submit="searchBusRoute()">
                 <div class="form-group">
-                    <input type="text" ng-keypress="isEmpy(searchInput.q)" class="bms-width350 form-control input-sm" required name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
+                    <input type="text" class="bms-width350 form-control input-sm" required name="q" ng-model="searchInput.q" placeholder="Search Bus Location" autocomplete="off" />
                     <button title="Search" type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
                 <p>Example of Keywords to Search "MG Road", "Shankarmatta", "Town Hall", "HAL"</p>
@@ -57,7 +57,7 @@
             <span class="error" ng-show="busDetails.length == 0">Search result not found</span>
         </div>
         
-        <div id="light">
+        <div id="light" ng-open="popupShow()">
             <table id="routes" cellspacing="0" cellpadding="0" width="100%">
                 <tbody>
                     <tr>
@@ -79,8 +79,8 @@
                        <B>Arrival Time : </B>{{ stopDetail.arrival_time }} 
                     </p>
                 </li>
-                <li>
-                    <span class="error" ng-show="stopDetails.length == 0">
+                <li ng-show="stopDetails.length == 0">
+                    <span class="error">
                         Search result not found
                     </span>
                 </li>
